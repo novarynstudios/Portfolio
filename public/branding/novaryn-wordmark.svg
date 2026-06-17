@@ -1,0 +1,15 @@
+<svg width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="7" y="18" width="25" height="10" fill="#8B5CF6"/>
+  <rect x="17" y="8" width="64" height="10" fill="#A78BFA"/>
+  <rect x="47" y="58" width="96" height="10" fill="#D946EF"/>
+  <text x="48" y="52" fill="white" font-family="Arial Black, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="1">NOVARYN</text>
+  <text x="233" y="52" fill="#A78BFA" font-family="Arial Black, Arial, sans-serif" font-size="24" font-weight="900">STUDIOS</text>
+  <path d="M45 58h252" stroke="url(#g)" stroke-width="4" stroke-linecap="square"/>
+  <defs>
+    <linearGradient id="g" x1="45" x2="297" y1="58" y2="58">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset=".55" stop-color="#D946EF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+</svg>

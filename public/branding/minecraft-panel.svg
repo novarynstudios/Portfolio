@@ -1,0 +1,40 @@
+<svg width="1600" height="760" viewBox="0 0 1600 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="760" fill="#160B15"/>
+  <g opacity=".45">
+    <rect x="0" y="0" width="160" height="160" fill="#4C1D38"/>
+    <rect x="160" y="0" width="160" height="160" fill="#70405F"/>
+    <rect x="320" y="0" width="160" height="160" fill="#261424"/>
+    <rect x="480" y="0" width="160" height="160" fill="#6C233F"/>
+    <rect x="640" y="0" width="160" height="160" fill="#1B1A2A"/>
+    <rect x="800" y="0" width="160" height="160" fill="#5A1D34"/>
+    <rect x="960" y="0" width="160" height="160" fill="#7D465F"/>
+    <rect x="1120" y="0" width="160" height="160" fill="#21131F"/>
+    <rect x="1280" y="0" width="160" height="160" fill="#4A1934"/>
+    <rect x="1440" y="0" width="160" height="160" fill="#151B22"/>
+  </g>
+  <g opacity=".32">
+    <rect x="80" y="160" width="160" height="160" fill="#70405F"/>
+    <rect x="240" y="160" width="160" height="160" fill="#221F2F"/>
+    <rect x="400" y="160" width="160" height="160" fill="#7D465F"/>
+    <rect x="560" y="160" width="160" height="160" fill="#4C1D38"/>
+    <rect x="720" y="160" width="160" height="160" fill="#120F18"/>
+    <rect x="880" y="160" width="160" height="160" fill="#6C233F"/>
+    <rect x="1040" y="160" width="160" height="160" fill="#3B182D"/>
+    <rect x="1200" y="160" width="160" height="160" fill="#70405F"/>
+    <rect x="1360" y="160" width="160" height="160" fill="#1B1A2A"/>
+  </g>
+  <g opacity=".26">
+    <rect x="0" y="320" width="160" height="160" fill="#261424"/>
+    <rect x="160" y="320" width="160" height="160" fill="#4A1934"/>
+    <rect x="320" y="320" width="160" height="160" fill="#70405F"/>
+    <rect x="480" y="320" width="160" height="160" fill="#151B22"/>
+    <rect x="640" y="320" width="160" height="160" fill="#6C233F"/>
+    <rect x="800" y="320" width="160" height="160" fill="#7D465F"/>
+    <rect x="960" y="320" width="160" height="160" fill="#21131F"/>
+    <rect x="1120" y="320" width="160" height="160" fill="#4C1D38"/>
+    <rect x="1280" y="320" width="160" height="160" fill="#70405F"/>
+    <rect x="1440" y="320" width="160" height="160" fill="#120F18"/>
+  </g>
+  <rect width="1600" height="760" fill="url(#v)"/>
+  <defs><linearGradient id="v" x1="0" x2="1600" y1="0" y2="760"><stop stop-color="#12080E" stop-opacity=".35"/><stop offset=".48" stop-color="#2A0D22" stop-opacity=".62"/><stop offset="1" stop-color="#09090B" stop-opacity=".9"/></linearGradient></defs>
+</svg>
