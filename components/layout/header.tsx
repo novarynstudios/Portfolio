@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Terminal } from "lucide-react";
+import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
@@ -25,8 +25,8 @@ export function Header() {
           className="text-xl font-extrabold text-[#e2e2f0] flex items-center gap-2 hover:text-white transition-all font-poppins"
           aria-label="Farid Rahman home"
         >
-          <Terminal className="h-6 w-6 text-[#7c3aed]" />
-          <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Farid</span>
+          <Image src="/branding/favicon.webp" alt="Farid Rahman Logo" width={24} height={24} className="h-6 w-6 object-contain" />
+          <span className="bg-gradient-to-r from-white to-[#06b6d4] bg-clip-text text-transparent">Farid Rahman</span>
         </a>
 
         {/* Desktop Navigation */}

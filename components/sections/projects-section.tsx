@@ -2,22 +2,62 @@
 
 import Image from "next/image";
 import { Code, Eye } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 14,
+    },
+  },
+};
+
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-[#0a0a0f] text-white">
+    <section id="projects" className="py-24 bg-[#0a0a0f] text-white overflow-hidden">
       <Container>
-        <h2 className="text-center font-poppins text-4xl font-extrabold tracking-tight text-white md:text-5xl flex items-center justify-center gap-3">
-          <Code className="h-10 w-10 text-[#7c3aed]" aria-hidden />
-          Projects <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Made</span>
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h2 className="font-poppins text-4xl font-extrabold tracking-tight text-white md:text-5xl flex items-center justify-center gap-3">
+            <Code className="h-10 w-10 text-[#7c3aed]" aria-hidden />
+            Projects <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Made</span>
+          </h2>
+        </motion.div>
         
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {portfolio.projects.map((project) => (
-            <div
+            <motion.div
               key={project.slug}
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="relative h-[320px] w-full rounded-xl overflow-hidden shadow-2xl group border border-[#ffffff12] bg-[#14141f]"
             >
               {/* Project Image Area */}
@@ -31,7 +71,7 @@ export function ProjectsSection() {
                 />
               </div>
 
-              {/* Jigar-style Slide-Up Overlay Content (adapted for dark mode) */}
+              {/* Jigar-style Slide-Up Overlay Content */}
               <div className="absolute top-[85%] left-0 w-full h-full bg-[#1c1c2e] transition-all duration-300 ease-in-out flex flex-col group-hover:top-[22%]">
                 {/* Header bar */}
                 <div className="h-[48px] min-h-[48px] w-full bg-gradient-to-r from-[#7c3aed] to-[#5b21b6] px-4 flex justify-between items-center text-white font-poppins font-bold text-base">
@@ -76,9 +116,9 @@ export function ProjectsSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

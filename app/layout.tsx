@@ -22,7 +22,7 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "Farid Rahman | Minecraft Plugin Developer",
+    default: "Farid Rahman | Portfolio",
     template: "%s | Farid Rahman"
   },
   description:
