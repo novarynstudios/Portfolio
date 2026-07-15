@@ -5,7 +5,10 @@ import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 
-export function AffiliationsSection() {
+export function AffiliationsSection({ data }: { data?: any }) {
+  const currentAffiliations = data?.affiliations || portfolio.currentAffiliations;
+  const metrics = data?.metrics || portfolio.metrics;
+
   return (
     <section className="py-24 bg-[#0f0f1a] text-[#e2e2f0]">
       <Container>
@@ -18,25 +21,29 @@ export function AffiliationsSection() {
         
         {/* Affiliation Logos */}
         <div className="grid gap-6 md:grid-cols-3">
-          {portfolio.currentAffiliations.map((affiliation) => (
+          {currentAffiliations.map((affiliation: any) => (
             <div
               key={affiliation.name}
               className="bg-[#14141f] border border-[#ffffff12] grid min-h-36 place-items-center rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#7c3aed]/40"
             >
-              <Image
-                src={affiliation.image}
-                alt={affiliation.alt}
-                width={420}
-                height={140}
-                className="h-16 w-auto max-w-full object-contain filter invert opacity-60 hover:opacity-100 hover:filter-none transition duration-300"
-              />
+              {affiliation.image ? (
+                <Image
+                  src={affiliation.image}
+                  alt={affiliation.alt}
+                  width={420}
+                  height={140}
+                  className="h-16 w-auto max-w-full object-contain filter invert opacity-60 hover:opacity-100 hover:filter-none transition duration-300"
+                />
+              ) : (
+                <span className="font-poppins font-extrabold text-lg text-white/50">{affiliation.name}</span>
+              )}
             </div>
           ))}
         </div>
 
         {/* Impact metrics counter */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {portfolio.metrics.map((metric) => (
+          {metrics.map((metric: any) => (
             <div
               key={metric.label}
               className="rounded-xl bg-[#14141f] p-6 text-center border border-[#ffffff12] shadow-lg transition duration-300 hover:scale-[1.03] hover:border-[#06b6d4]"

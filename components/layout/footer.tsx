@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Mail, MapPin, ChevronRight, Github, Twitter, MessageSquare, ArrowUp } from "lucide-react";
+import { Heart, Mail, MapPin, ChevronRight, Github, Twitter, MessageSquare, ArrowUp, Instagram } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 
@@ -72,8 +72,8 @@ export function Footer() {
           <div className="space-y-4 text-sm font-semibold font-nunito text-[#8882a4]">
             <p className="flex items-center gap-2">
               <Mail className="h-5 w-5 text-[#7c3aed] shrink-0" />
-              <a href="mailto:hello@novarynstudios.com" className="hover:text-[#06b6d4] transition-colors">
-                {portfolio.person.email}
+              <a href="mailto:contact@faridrahman.xyz" className="hover:text-[#06b6d4] transition-colors">
+                contact@faridrahman.xyz
               </a>
             </p>
             <p className="flex items-center gap-2">
@@ -84,16 +84,15 @@ export function Footer() {
           
           <div className="mt-6 flex items-center gap-3">
             <a
-              href="https://github.com/faridrahman1843"
-              target="_blank"
-              rel="noreferrer"
+              href="#"
+              onClick={(e) => { e.preventDefault(); alert("GitHub coming soon!"); }}
               aria-label="GitHub"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#24292e] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#24292e] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 cursor-pointer"
             >
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://discord.com/users/faridrahman1843"
+              href="https://discord.com/users/1142848103649660958"
               target="_blank"
               rel="noreferrer"
               aria-label="Discord"
@@ -102,11 +101,19 @@ export function Footer() {
               <MessageSquare className="h-5 w-5" />
             </a>
             <a
-              href="https://x.com/faridrahman1843"
+              href="https://instagram.com/faridrahman133"
               target="_blank"
               rel="noreferrer"
+              aria-label="Instagram"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#C13584] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(193,53,132,0.3)] hover:scale-105"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); alert("Twitter coming soon!"); }}
               aria-label="Twitter"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(29,161,242,0.3)] hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(29,161,242,0.3)] hover:scale-105 cursor-pointer"
             >
               <Twitter className="h-5 w-5" />
             </a>

@@ -29,7 +29,9 @@ const cardVariants: Variants = {
   },
 };
 
-export function ProjectsSection() {
+export function ProjectsSection({ data }: { data?: any }) {
+  const projectsList = data?.projects || portfolio.projects;
+
   return (
     <section id="projects" className="py-24 bg-[#0a0a0f] text-white overflow-hidden">
       <Container>
@@ -53,7 +55,7 @@ export function ProjectsSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {portfolio.projects.map((project) => (
+          {projectsList.map((project: any) => (
             <motion.div
               key={project.slug}
               variants={cardVariants}
@@ -62,13 +64,17 @@ export function ProjectsSection() {
             >
               {/* Project Image Area */}
               <div className="relative w-full h-full p-12 pb-20 flex items-center justify-center bg-[#14141f] transition duration-500 group-hover:scale-105">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} logo`}
-                  width={200}
-                  height={200}
-                  className="object-contain max-h-[140px] w-auto max-w-full"
-                />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} logo`}
+                    width={200}
+                    height={200}
+                    className="object-contain max-h-[140px] w-auto max-w-full"
+                  />
+                ) : (
+                  <div className="text-white/20 font-bold font-poppins">{project.title}</div>
+                )}
               </div>
 
               {/* Jigar-style Slide-Up Overlay Content */}
@@ -88,7 +94,7 @@ export function ProjectsSection() {
                       {project.description}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
-                      {project.tags.slice(0, 3).map((tag) => (
+                      {project.tags.slice(0, 3).map((tag: string) => (
                         <span key={tag} className="text-[11px] font-bold bg-[#14141f] text-[#06b6d4] border border-[#ffffff12] px-2 py-0.5 rounded-full font-poppins">
                           {tag}
                         </span>
@@ -97,7 +103,7 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="mt-4 flex gap-2">
-                    {project.links.map((link) => (
+                    {project.links.map((link: any) => (
                       <a
                         key={link.label}
                         href={link.href}

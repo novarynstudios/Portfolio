@@ -29,7 +29,15 @@ const contactResolver: Resolver<ContactFormValues> = async (values) => {
   return { values: {}, errors };
 };
 
-export function ContactSection() {
+export function ContactSection({ data }: { data?: any }) {
+  const contact = {
+    heading: data?.contact?.heading || portfolio.contact.heading,
+    description: data?.contact?.description || portfolio.contact.description,
+  };
+  const hero = {
+    profileImage: data?.hero?.profileImage || portfolio.hero.profileImage,
+  };
+
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const {
     register,
@@ -50,12 +58,12 @@ export function ContactSection() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values)
     });
-    const data = (await response.json()) as { message?: string };
+    const resData = (await response.json()) as { message?: string };
     if (!response.ok) {
-      setStatus({ type: "error", message: data.message ?? "The message could not be sent. Please try again." });
+      setStatus({ type: "error", message: resData.message ?? "The message could not be sent. Please try again." });
       return;
     }
-    setStatus({ type: "success", message: data.message ?? "Message received. Farid will reply soon." });
+    setStatus({ type: "success", message: resData.message ?? "Message received. Farid will reply soon." });
   };
 
   return (
@@ -74,10 +82,10 @@ export function ContactSection() {
             {/* Form */}
             <div>
               <p className="font-poppins text-lg font-bold text-[#06b6d4]">
-                {portfolio.contact.heading}
+                {contact.heading}
               </p>
               <p className="mt-2 text-sm text-[#8882a4] font-nunito leading-6">
-                {portfolio.contact.description}
+                {contact.description}
               </p>
 
               <form className="mt-8 grid gap-5" onSubmit={handleSubmit(onSubmit)}>
@@ -216,7 +224,7 @@ export function ContactSection() {
                 <div className="flex justify-center">
                   <div className="relative h-44 w-44 rounded-full border-4 border-white/5 overflow-hidden shadow-2xl">
                     <Image
-                      src={portfolio.hero.profileImage}
+                      src={hero.profileImage}
                       alt="Farid Rahman"
                       fill
                       className="object-cover"

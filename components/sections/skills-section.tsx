@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Laptop } from "lucide-react";
 import { Container } from "@/components/ui/container";
 
-const SKILLS = [
+const STATIC_SKILLS = [
   { name: "Java", image: "/technologies/java.svg" },
   { name: "TypeScript", image: "/technologies/typescript.svg" },
   { name: "JavaScript", image: "/technologies/javascript.svg" },
@@ -21,7 +21,9 @@ const SKILLS = [
   { name: "Nginx", image: "/technologies/nginx.svg" },
 ];
 
-export function SkillsSection() {
+export function SkillsSection({ data }: { data?: any }) {
+  const skillsList = data?.skills || STATIC_SKILLS;
+
   return (
     <section id="skills" className="py-24 bg-[#0f0f1a] text-white">
       <Container>
@@ -32,7 +34,7 @@ export function SkillsSection() {
         
         <div className="mt-16 mx-auto max-w-6xl rounded-2xl bg-[#14141f] p-6 md:p-10 border border-[#ffffff12]">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-            {SKILLS.map((skill) => (
+            {skillsList.map((skill: any) => (
               <div
                 key={skill.name}
                 className="bg-[#1c1c2e] hover:bg-[#14141f] rounded-xl p-5 border border-[#ffffff12] flex flex-col items-center justify-center gap-4 text-center transition-all duration-300 hover:scale-105 hover:border-[#7c3aed] hover:shadow-[0_0_20px_rgba(124,58,237,0.3)] group"

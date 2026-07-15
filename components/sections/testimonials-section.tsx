@@ -4,7 +4,7 @@ import { MessageSquare, Star } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/container";
 
-const TESTIMONIALS = [
+const STATIC_TESTIMONIALS = [
   {
     name: "Daniel",
     project: "Commission - Sniper Network Owner",
@@ -45,7 +45,9 @@ const itemVariants: Variants = {
   }
 };
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ data }: { data?: any }) {
+  const testimonialsList = data?.testimonials || STATIC_TESTIMONIALS;
+
   return (
     <section id="reviews" className="py-24 bg-[#0f0f1a] text-[#e2e2f0] overflow-hidden">
       <Container>
@@ -70,7 +72,7 @@ export function TestimonialsSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
         >
-          {TESTIMONIALS.map((review, idx) => (
+          {testimonialsList.map((review: any, idx: number) => (
             <motion.div
               key={idx}
               variants={itemVariants}

@@ -1,10 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import * as LucideIcons from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 
-export function ServicesSection() {
+function getServiceIcon(iconName?: string) {
+  if (!iconName) return LucideIcons.Code;
+  const Icon = (LucideIcons as any)[iconName];
+  return Icon || LucideIcons.Code;
+}
+
+export function ServicesSection({ data }: { data?: any }) {
+  const servicesList = data?.services || portfolio.services;
+
   return (
     <section id="services" className="py-24 bg-[#0f0f1a] text-[#e2e2f0]">
       <Container>
@@ -19,8 +28,12 @@ export function ServicesSection() {
         </div>
 
         <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {portfolio.services.map((service, index) => {
-            const Icon = service.icon;
+          {servicesList.map((service: any, index: number) => {
+            // Check if icon is a Lucide React component or a string name
+            const Icon = typeof service.icon === "string" || !service.icon 
+              ? getServiceIcon(service.iconName || service.icon) 
+              : service.icon;
+            
             return (
               <motion.div
                 key={service.title}

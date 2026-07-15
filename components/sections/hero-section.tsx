@@ -1,13 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, Github, Mail, Twitter, MessageSquare } from "lucide-react";
+import { ArrowDown, Github, Mail, Twitter, MessageSquare, Instagram } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 import { ParticlesBackground } from "@/components/ui/particles-background";
 import { TypingText } from "@/components/ui/typing-text";
 
-export function HeroSection() {
+export function HeroSection({ data }: { data?: any }) {
+  const person = {
+    name: data?.person?.name || portfolio.person.name,
+    role: data?.person?.role || portfolio.person.role,
+    email: data?.person?.email || portfolio.person.email,
+    location: data?.person?.location || portfolio.person.location,
+  };
+  const hero = {
+    intro: data?.hero?.intro || portfolio.hero.intro,
+    profileImage: data?.hero?.profileImage || portfolio.hero.profileImage,
+  };
+
   const typingStrings = [
     "Minecraft Plugin Development",
     "Full-Stack Web Development",
@@ -29,7 +40,7 @@ export function HeroSection() {
           </p>
           <h2 className="font-poppins text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight tracking-tight text-white">
             <span className="bg-gradient-to-r from-white via-white to-[#06b6d4] bg-clip-text text-transparent">
-              {portfolio.person.name}
+              {person.name}
             </span>
           </h2>
           
@@ -38,7 +49,7 @@ export function HeroSection() {
           </p>
           
           <p className="mt-6 text-base text-[#8882a4] max-w-lg leading-7 font-nunito">
-            {portfolio.hero.intro}
+            {hero.intro}
           </p>
           
           <a
@@ -53,42 +64,51 @@ export function HeroSection() {
             <ul className="flex items-center gap-4">
               <li>
                 <a
-                  href="https://github.com/faridrahman1843"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); alert("GitHub coming soon!"); }}
                   aria-label="GitHub"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#7c3aed] hover:text-white hover:scale-110"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#24292e] hover:text-white hover:scale-110 hover:border-transparent cursor-pointer"
                 >
                   <Github className="h-5 w-5" />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://discord.com/users/faridrahman1843"
+                  href="https://discord.com/users/1142848103649660958"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Discord"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#5865F2] hover:text-white hover:scale-110"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#5865F2] hover:text-white hover:scale-110 hover:border-transparent"
                 >
                   <MessageSquare className="h-5 w-5" />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://x.com/faridrahman1843"
+                  href="https://instagram.com/faridrahman133"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Instagram"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#C13584] hover:text-white hover:scale-110 hover:border-transparent"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); alert("Twitter coming soon!"); }}
                   aria-label="Twitter"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white hover:scale-110"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white hover:scale-110 hover:border-transparent cursor-pointer"
                 >
                   <Twitter className="h-5 w-5" />
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:hello@novarynstudios.com"
+                  href="mailto:contact@faridrahman.xyz"
                   aria-label="Email"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#ea4335] hover:text-white hover:scale-110"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#14141f] border border-[#ffffff12] text-[#8882a4] transition-all duration-300 hover:bg-[#ea4335] hover:text-white hover:scale-110 hover:border-transparent"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
@@ -100,8 +120,8 @@ export function HeroSection() {
         <div className="flex justify-center lg:justify-end">
           <div className="relative h-72 w-72 sm:h-96 sm:w-96 overflow-hidden rounded-full border-3 border-[#7c3aed] shadow-[0_0_40px_rgba(124,58,237,0.25)] transition duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(124,58,237,0.45)]">
             <Image
-              src={portfolio.hero.profileImage}
-              alt={`Profile picture of ${portfolio.person.name}`}
+              src={hero.profileImage}
+              alt={`Profile picture of ${person.name}`}
               fill
               priority
               sizes="(max-width: 640px) 288px, 384px"

@@ -5,7 +5,18 @@ import { User, ChevronRight } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
 
-export function AboutSection() {
+export function AboutSection({ data }: { data?: any }) {
+  const person = {
+    name: data?.person?.name || portfolio.person.name,
+    role: data?.person?.role || portfolio.person.role,
+    email: data?.person?.email || portfolio.person.email,
+    location: data?.person?.location || portfolio.person.location,
+  };
+  const hero = {
+    intro: data?.hero?.intro || portfolio.hero.intro,
+    profileImage: data?.hero?.profileImage || portfolio.hero.profileImage,
+  };
+
   return (
     <section id="about" className="py-24 bg-[#0a0a0f] text-[#e2e2f0]">
       <Container>
@@ -18,8 +29,8 @@ export function AboutSection() {
           <div className="flex justify-center">
             <div className="relative group overflow-hidden rounded-xl border border-[#ffffff12] shadow-[0_0_60px_rgba(124,58,237,0.12)] transition duration-500 hover:shadow-[0_0_80px_rgba(124,58,237,0.25)]">
               <Image
-                src={portfolio.hero.profileImage}
-                alt="Profile picture of Farid Rahman"
+                src={hero.profileImage}
+                alt={`Profile picture of ${person.name}`}
                 width={360}
                 height={360}
                 className="object-cover filter grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-500 rounded-xl"
@@ -29,14 +40,14 @@ export function AboutSection() {
           
           <div className="font-nunito">
             <h3 className="text-3xl font-extrabold text-white font-poppins">
-              I'm {portfolio.person.name}
+              I'm {person.name}
             </h3>
             <p className="mt-2 text-lg font-bold text-[#06b6d4] font-poppins">
-              {portfolio.person.role}
+              {person.role}
             </p>
             
             <p className="mt-6 text-base leading-8 text-[#8882a4]">
-              I am a Minecraft plugin developer and full-stack web developer based in {portfolio.person.location}.
+              I am a Minecraft plugin developer and full-stack web developer based in {person.location}.
               I build plugins, dashboards, documentation, licensing systems, and reliable infrastructure for communities 
               that need their tools to feel fast, reliable, and easy to run.
             </p>
@@ -44,11 +55,11 @@ export function AboutSection() {
             <div className="mt-8 border-t border-[#ffffff12] pt-8 grid gap-4 sm:grid-cols-2">
               <div className="bg-[#14141f] rounded-lg p-5 border border-[#ffffff12] shadow-sm">
                 <p className="text-sm font-semibold text-[#8882a4] font-poppins">Email</p>
-                <p className="mt-1 text-base font-bold text-white break-all select-all">{portfolio.person.email}</p>
+                <p className="mt-1 text-base font-bold text-white break-all select-all">{person.email}</p>
               </div>
               <div className="bg-[#14141f] rounded-lg p-5 border border-[#ffffff12] shadow-sm">
                 <p className="text-sm font-semibold text-[#8882a4] font-poppins">Location</p>
-                <p className="mt-1 text-base font-bold text-white">{portfolio.person.location}</p>
+                <p className="mt-1 text-base font-bold text-white">{person.location}</p>
               </div>
             </div>
             
