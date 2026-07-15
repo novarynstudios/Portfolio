@@ -17,16 +17,16 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 bg-white shadow-md border-b border-zinc-200 h-16 flex items-center transition-all duration-300">
+    <header className="fixed inset-x-0 top-0 z-40 bg-[#0a0a0f]/85 backdrop-blur-md border-b border-[#ffffff12] h-16 flex items-center transition-all duration-300">
       <Container className="flex items-center justify-between">
         {/* Logo */}
         <a
           href="#home"
-          className="text-xl font-extrabold text-[#0e2431] flex items-center gap-2 hover:text-[#fc8c05] transition-colors font-poppins"
+          className="text-xl font-extrabold text-[#e2e2f0] flex items-center gap-2 hover:text-white transition-all font-poppins"
           aria-label="Farid Rahman home"
         >
-          <Terminal className="h-6 w-6 text-[#2506ad]" />
-          <span>Farid</span>
+          <Terminal className="h-6 w-6 text-[#7c3aed]" />
+          <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Farid</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -35,7 +35,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[#0e2431] hover:text-[#011aff] border-b-2 border-transparent hover:border-[#011aff] py-1 text-sm font-bold tracking-wide transition-all font-poppins"
+              className="text-[#8882a4] hover:text-[#e2e2f0] border-b-2 border-transparent hover:border-[#7c3aed] py-1 text-sm font-bold tracking-wide transition-all font-poppins"
             >
               {item.label}
             </a>

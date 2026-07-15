@@ -8,12 +8,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[rgb(0,1,43)] py-16 text-white border-t border-white/5 font-poppins">
+    <footer className="bg-[#14141f] py-16 text-[#e2e2f0] border-t border-[#ffffff12] font-poppins">
       <Container className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         {/* Column 1: Intro */}
         <div className="flex flex-col items-start">
-          <h3 className="text-2xl font-extrabold text-white">Farid's Portfolio</h3>
-          <p className="mt-4 text-sm leading-7 text-zinc-400 font-nunito font-semibold max-w-sm">
+          <h3 className="text-2xl font-extrabold text-white bg-gradient-to-r from-white to-[#06b6d4] bg-clip-text text-transparent">Farid's Portfolio</h3>
+          <p className="mt-4 text-sm leading-7 text-[#8882a4] font-nunito font-semibold max-w-sm">
             Thank you for visiting my personal portfolio website. Connect with me over socials or email.
             <br />
             <br />
@@ -24,14 +24,14 @@ export function Footer() {
         {/* Column 2: Quick Links */}
         <div>
           <h3 className="text-xl font-bold text-white mb-5">Quick Links</h3>
-          <div className="grid grid-cols-2 gap-3 text-sm font-semibold font-nunito text-zinc-300">
+          <div className="grid grid-cols-2 gap-3 text-sm font-semibold font-nunito text-[#8882a4]">
             {portfolio.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-1 hover:text-yellow-400 transition-colors"
+                className="flex items-center gap-1 hover:text-[#06b6d4] transition-colors"
               >
-                <ChevronRight className="h-4 w-4 text-yellow-400 shrink-0" />
+                <ChevronRight className="h-4 w-4 text-[#7c3aed] shrink-0" />
                 {item.label}
               </a>
             ))}
@@ -41,15 +41,15 @@ export function Footer() {
         {/* Column 3: Contact info & socials */}
         <div>
           <h3 className="text-xl font-bold text-white mb-5">Contact Info</h3>
-          <div className="space-y-4 text-sm font-semibold font-nunito text-zinc-300">
+          <div className="space-y-4 text-sm font-semibold font-nunito text-[#8882a4]">
             <p className="flex items-center gap-2">
-              <Mail className="h-5 w-5 text-yellow-400 shrink-0" />
-              <a href="mailto:hello@novarynstudios.com" className="hover:text-yellow-400 transition-colors">
+              <Mail className="h-5 w-5 text-[#7c3aed] shrink-0" />
+              <a href="mailto:hello@novarynstudios.com" className="hover:text-[#06b6d4] transition-colors">
                 {portfolio.person.email}
               </a>
             </p>
             <p className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-yellow-400 shrink-0" />
+              <MapPin className="h-5 w-5 text-[#7c3aed] shrink-0" />
               <span>{portfolio.person.location}</span>
             </p>
           </div>
@@ -60,7 +60,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-white transition hover:bg-[#ffae00] hover:text-black"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1c1c2e] border border-[#ffffff12] text-[#8882a4] transition hover:bg-[#7c3aed] hover:text-white"
             >
               <Github className="h-4 w-4" />
             </a>
@@ -69,7 +69,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Discord"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-white transition hover:bg-[#ffae00] hover:text-black"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1c1c2e] border border-[#ffffff12] text-[#8882a4] transition hover:bg-[#5865F2] hover:text-white"
             >
               <MessageSquare className="h-4 w-4" />
             </a>
@@ -78,7 +78,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Twitter"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-white transition hover:bg-[#ffae00] hover:text-black"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1c1c2e] border border-[#ffffff12] text-[#8882a4] transition hover:bg-[#1DA1F2] hover:text-white"
             >
               <Twitter className="h-4 w-4" />
             </a>
@@ -87,7 +87,7 @@ export function Footer() {
       </Container>
 
       {/* Credit row */}
-      <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm font-semibold text-zinc-400 font-nunito">
+      <div className="mt-12 pt-8 border-t border-[#ffffff12] text-center text-sm font-semibold text-[#8882a4] font-nunito">
         <Container className="flex flex-col items-center justify-center gap-2 sm:flex-row">
           <span>© {year} {portfolio.person.name}. All rights reserved.</span>
           <span className="hidden sm:inline">•</span>
@@ -99,7 +99,7 @@ export function Footer() {
               href="https://github.com/faridrahman1843"
               target="_blank"
               rel="noreferrer"
-              className="text-yellow-400 hover:underline"
+              className="text-[#06b6d4] hover:underline"
             >
               {portfolio.person.name}
             </a>

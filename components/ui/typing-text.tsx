@@ -35,7 +35,7 @@ export function TypingText({ strings }: { strings: readonly string[] }) {
   }, [subIndex, index, strings]);
 
   return (
-    <span className="text-[#a855f7] font-bold border-r-[3px] border-[#a855f7] pr-1 animate-pulse min-h-[1.5em] inline-block font-poppins">
+    <span className="text-[#06b6d4] font-bold border-r-[3px] border-[#06b6d4] pr-1 animate-pulse min-h-[1.5em] inline-block font-poppins">
       {text}
     </span>
   );

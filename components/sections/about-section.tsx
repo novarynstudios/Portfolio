@@ -7,16 +7,16 @@ import { Container } from "@/components/ui/container";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-white text-zinc-950">
+    <section id="about" className="py-24 bg-[#0a0a0f] text-[#e2e2f0]">
       <Container>
-        <h2 className="text-center font-poppins text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl">
-          <User className="inline-block mr-3 h-10 w-10 text-[#4a00e0]" aria-hidden />
-          About <span className="text-[#a855f7]">Me</span>
+        <h2 className="text-center font-poppins text-4xl font-extrabold tracking-tight text-white md:text-5xl flex items-center justify-center gap-3">
+          <User className="h-10 w-10 text-[#7c3aed]" aria-hidden />
+          About <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Me</span>
         </h2>
         
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.1fr_1.9fr] items-center">
           <div className="flex justify-center">
-            <div className="relative group overflow-hidden rounded-xl shadow-2xl transition duration-300 hover:shadow-[0_20px_50px_rgba(139,92,246,0.3)]">
+            <div className="relative group overflow-hidden rounded-xl border border-[#ffffff12] shadow-[0_0_60px_rgba(124,58,237,0.12)] transition duration-500 hover:shadow-[0_0_80px_rgba(124,58,237,0.25)]">
               <Image
                 src={portfolio.hero.profileImage}
                 alt="Profile picture of Farid Rahman"
@@ -28,34 +28,34 @@ export function AboutSection() {
           </div>
           
           <div className="font-nunito">
-            <h3 className="text-3xl font-extrabold text-zinc-800 font-poppins">
+            <h3 className="text-3xl font-extrabold text-white font-poppins">
               I'm {portfolio.person.name}
             </h3>
-            <p className="mt-2 text-lg font-bold text-[#4a00e0] font-poppins">
+            <p className="mt-2 text-lg font-bold text-[#06b6d4] font-poppins">
               {portfolio.person.role}
             </p>
             
-            <p className="mt-6 text-base leading-8 text-zinc-600">
+            <p className="mt-6 text-base leading-8 text-[#8882a4]">
               I am a Minecraft plugin developer and full-stack web developer based in {portfolio.person.location}.
               I build plugins, dashboards, documentation, licensing systems, and reliable infrastructure for communities 
               that need their tools to feel fast, reliable, and easy to run.
             </p>
             
-            <div className="mt-8 border-t border-zinc-100 pt-8 grid gap-4 sm:grid-cols-2">
-              <div className="bg-[#f7f7f7] rounded-lg p-5 border border-zinc-100 shadow-sm">
-                <p className="text-sm font-semibold text-zinc-500 font-poppins">Email</p>
-                <p className="mt-1 text-base font-bold text-zinc-800 break-all select-all">{portfolio.person.email}</p>
+            <div className="mt-8 border-t border-[#ffffff12] pt-8 grid gap-4 sm:grid-cols-2">
+              <div className="bg-[#14141f] rounded-lg p-5 border border-[#ffffff12] shadow-sm">
+                <p className="text-sm font-semibold text-[#8882a4] font-poppins">Email</p>
+                <p className="mt-1 text-base font-bold text-white break-all select-all">{portfolio.person.email}</p>
               </div>
-              <div className="bg-[#f7f7f7] rounded-lg p-5 border border-zinc-100 shadow-sm">
-                <p className="text-sm font-semibold text-zinc-500 font-poppins">Location</p>
-                <p className="mt-1 text-base font-bold text-zinc-800">{portfolio.person.location}</p>
+              <div className="bg-[#14141f] rounded-lg p-5 border border-[#ffffff12] shadow-sm">
+                <p className="text-sm font-semibold text-[#8882a4] font-poppins">Location</p>
+                <p className="mt-1 text-base font-bold text-white">{portfolio.person.location}</p>
               </div>
             </div>
             
             <div className="mt-10">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#2506ad] px-8 py-4 text-base font-bold text-white shadow-[0_5px_15px_rgba(37,6,173,0.4)] transition hover:bg-[#1a047e] font-poppins"
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#7c3aed] to-[#5b21b6] px-8 py-4 text-base font-bold text-white shadow-[0_0_20px_rgba(124,58,237,0.35)] transition hover:shadow-[0_0_32px_rgba(124,58,237,0.55)] hover:-translate-y-0.5 duration-300 font-poppins"
               >
                 Get In Touch
                 <ChevronRight className="h-4 w-4" />
