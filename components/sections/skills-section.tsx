@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Laptop } from "lucide-react";
 import { Container } from "@/components/ui/container";
 
-const SKILLS = [
+const STATIC_SKILLS = [
   { name: "Java", image: "/technologies/java.svg" },
   { name: "TypeScript", image: "/technologies/typescript.svg" },
   { name: "JavaScript", image: "/technologies/javascript.svg" },
@@ -21,21 +21,23 @@ const SKILLS = [
   { name: "Nginx", image: "/technologies/nginx.svg" },
 ];
 
-export function SkillsSection() {
+export function SkillsSection({ data }: { data?: any }) {
+  const skillsList = data?.skills || STATIC_SKILLS;
+
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-[#57059e] to-[#4a00e0] text-white">
+    <section id="skills" className="py-24 bg-[#0f0f1a] text-white">
       <Container>
-        <h2 className="text-center font-poppins text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-          <Laptop className="inline-block mr-3 h-10 w-10 text-yellow-300" aria-hidden />
-          Skills & <span className="text-yellow-300">Abilities</span>
+        <h2 className="text-center font-poppins text-4xl font-extrabold tracking-tight text-white md:text-5xl flex items-center justify-center gap-3">
+          <Laptop className="h-10 w-10 text-[#06b6d4]" aria-hidden />
+          Skills & <span className="bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] bg-clip-text text-transparent">Abilities</span>
         </h2>
         
-        <div className="mt-16 mx-auto max-w-6xl rounded-2xl bg-[rgba(0,0,22,0.35)] p-6 md:p-10 border border-white/5">
+        <div className="mt-16 mx-auto max-w-6xl rounded-2xl bg-[#14141f] p-6 md:p-10 border border-[#ffffff12]">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-            {SKILLS.map((skill) => (
+            {skillsList.map((skill: any) => (
               <div
                 key={skill.name}
-                className="bg-[rgba(0,0,22,0.85)] hover:bg-black/90 rounded-xl p-5 border border-white/10 flex flex-col items-center justify-center gap-4 text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_20px_rgba(0,2,68,0.7)] group"
+                className="bg-[#1c1c2e] hover:bg-[#14141f] rounded-xl p-5 border border-[#ffffff12] flex flex-col items-center justify-center gap-4 text-center transition-all duration-300 hover:scale-105 hover:border-[#7c3aed] hover:shadow-[0_0_20px_rgba(124,58,237,0.3)] group"
               >
                 <div className="relative h-14 w-14 transition duration-300 group-hover:scale-110">
                   <Image
@@ -46,7 +48,7 @@ export function SkillsSection() {
                     className="object-contain"
                   />
                 </div>
-                <span className="font-poppins text-sm font-semibold tracking-wide text-zinc-100 group-hover:text-white">
+                <span className="font-poppins text-sm font-semibold tracking-wide text-[#8882a4] group-hover:text-white">
                   {skill.name}
                 </span>
               </div>

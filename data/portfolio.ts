@@ -13,7 +13,8 @@ import {
   Server,
   ShieldCheck,
   TerminalSquare,
-  Twitter
+  Twitter,
+  Instagram
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -40,7 +41,7 @@ export const portfolio = {
     handle: "@faridrahman1843",
     role: "Minecraft Plugin Developer and Full-Stack Web Developer",
     studio: "Novaryn Studios",
-    email: "hello@novarynstudios.com",
+    email: "contact@faridrahman.xyz",
     location: "Dhaka, Bangladesh"
   },
   nav: [
@@ -50,13 +51,15 @@ export const portfolio = {
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
     { label: "Services", href: "#services" },
+    { label: "Reviews", href: "#reviews" },
     { label: "Contact", href: "#contact" }
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/faridrahman1843", icon: Github },
-    { label: "Discord", href: "https://discord.com/users/faridrahman1843", icon: MessageCircle },
-    { label: "X/Twitter", href: "https://x.com/faridrahman1843", icon: Twitter },
-    { label: "Email", href: "mailto:hello@novarynstudios.com", icon: Mail }
+    { label: "GitHub", href: "#", icon: Github },
+    { label: "Discord", href: "https://discord.com/users/1142848103649660958", icon: MessageCircle },
+    { label: "Instagram", href: "https://instagram.com/faridrahman133", icon: Instagram },
+    { label: "X/Twitter", href: "#", icon: Twitter },
+    { label: "Email", href: "mailto:contact@faridrahman.xyz", icon: Mail }
   ],
   hero: {
     profileImage: "/profile/farid-pfp.webp",
