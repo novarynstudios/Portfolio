@@ -50,6 +50,7 @@ export const portfolio = {
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
     { label: "Services", href: "#services" },
+    { label: "Reviews", href: "#reviews" },
     { label: "Contact", href: "#contact" }
   ],
   socials: [
