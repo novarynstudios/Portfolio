@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Poppins, Nunito } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { absoluteUrl } from "@/lib/utils";
 
-const geist = Geist({
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-poppins",
+  display: "swap"
+});
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-nunito",
   display: "swap"
 });
 
@@ -56,7 +65,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={geist.className}>
+      <body className={`${poppins.variable} ${nunito.variable} font-poppins`}>
         <Header />
         {children}
         <Footer />

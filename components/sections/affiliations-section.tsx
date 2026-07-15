@@ -1,57 +1,52 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 export function AffiliationsSection() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-white text-zinc-950">
       <Container>
-        <div className="mb-12">
-          <p className="section-kicker">Work Map</p>
-          <h2 className="mt-3 text-4xl font-black text-white">Current focus and experience.</h2>
+        <div className="mb-12 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#4a00e0]">Work Map & Stats</p>
+          <h2 className="mt-3 font-poppins text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl">
+            Current Focus & Impact
+          </h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        
+        {/* Affiliation Logos */}
+        <div className="grid gap-6 md:grid-cols-3">
           {portfolio.currentAffiliations.map((affiliation) => (
-            <div key={affiliation.name} className="purple-panel grid min-h-36 place-items-center rounded-md p-5">
-              <Image src={affiliation.image} alt={affiliation.alt} width={420} height={140} className="h-24 w-auto max-w-full object-contain" />
+            <div
+              key={affiliation.name}
+              className="bg-[#f7f7f7] border border-zinc-200 grid min-h-36 place-items-center rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#a855f7]/40"
+            >
+              <Image
+                src={affiliation.image}
+                alt={affiliation.alt}
+                width={420}
+                height={140}
+                className="h-16 w-auto max-w-full object-contain filter grayscale hover:grayscale-0 transition duration-300"
+              />
             </div>
           ))}
         </div>
-        <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {portfolio.selectedExperience.map((experience, index) => (
-            <motion.div
-              key={experience.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="rounded-md border border-primary/20 bg-[#120e1c] p-6"
+
+        {/* Impact metrics counter */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {portfolio.metrics.map((metric) => (
+            <div
+              key={metric.label}
+              className="rounded-xl bg-[#120e1c] p-6 text-center border border-white/5 shadow-lg transition duration-300 hover:scale-[1.03]"
             >
-              <h3 className="text-2xl font-black text-white">{experience.title}</h3>
-              <p className="mt-5 text-base leading-8 text-white/[0.85]">{experience.description}</p>
-            </motion.div>
+              <AnimatedCounter value={metric.value} suffix={metric.suffix} />
+              <p className="mt-2 text-sm font-semibold tracking-wide text-zinc-400 font-poppins uppercase">
+                {metric.label}
+              </p>
+            </div>
           ))}
-        </div>
-        <div className="mt-14">
-          <h2 className="text-2xl font-black text-white">Past Experience</h2>
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            {portfolio.pastExperience.map((experience, index) => (
-              <motion.div
-                key={experience.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="rounded-md border border-primary/20 bg-[#120e1c] p-6"
-              >
-                <h3 className="text-2xl font-black text-white">{experience.title}</h3>
-                <p className="mt-5 text-base leading-8 text-white/[0.85]">{experience.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </Container>
     </section>

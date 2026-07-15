@@ -1,66 +1,105 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Github } from "lucide-react";
+import { ArrowDown, Github, Mail, Twitter, MessageSquare } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { Container } from "@/components/ui/container";
-import { LinkButton } from "@/components/ui/button";
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 }
-};
+import { ParticlesBackground } from "@/components/ui/particles-background";
+import { TypingText } from "@/components/ui/typing-text";
 
 export function HeroSection() {
+  const typingStrings = [
+    "Minecraft Plugin Development",
+    "Full-Stack Web Development",
+    "Practice Server Integrations",
+    "Licensing Systems",
+    "Deployment & Infrastructure"
+  ] as const;
+
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden pt-28">
-      <Container className="relative z-10 grid min-h-[calc(100vh-7rem)] items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <motion.div initial="hidden" animate="show" transition={{ staggerChildren: 0.1, duration: 0.55 }} className="purple-panel rounded-lg p-6 sm:p-8 lg:p-10">
-          <motion.p variants={item} className="section-kicker">Novaryn Studios / Farid Rahman</motion.p>
-          <motion.h1 variants={item} className="mt-5 max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
-            Minecraft plugins, web tools, and infra that feel finished.
-          </motion.h1>
-          <motion.p variants={item} className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-            {portfolio.hero.intro}
-          </motion.p>
-          <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="#projects">
-              Explore My Work
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </LinkButton>
-            <LinkButton href="#contact" variant="secondary">Contact Me</LinkButton>
-            <LinkButton href="https://github.com/faridrahman1843" variant="ghost">
-              <Github className="h-4 w-4" aria-hidden />
-              GitHub Profile
-            </LinkButton>
-          </motion.div>
-          <motion.div variants={item} className="mt-10 grid gap-3 sm:grid-cols-4">
-            {portfolio.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-md border border-primary/20 bg-black/20 p-4">
-                <p className="text-2xl font-black text-white">{metric.value}{metric.suffix}</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-muted">{metric.label}</p>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="grid gap-4">
-          <div className="purple-panel overflow-hidden rounded-lg p-4">
-            <div className="relative aspect-square overflow-hidden rounded-md">
-              <Image src={portfolio.hero.profileImage} alt="Profile picture of Farid Rahman" fill sizes="(max-width: 1024px) 90vw, 34rem" priority className="object-cover" />
-            </div>
+    <section id="home" className="relative min-h-screen flex items-center bg-[#f7f7f7] text-[#002057] overflow-hidden pt-20">
+      <ParticlesBackground />
+      
+      <Container className="relative z-10 grid gap-12 lg:grid-cols-2 items-center w-full">
+        <div className="flex flex-col items-start text-left">
+          <h2 className="font-poppins text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight tracking-tight text-[#002057]">
+            Hi There,<br />
+            I'm <span className="text-[#ff7b00]">{portfolio.person.name}</span>
+          </h2>
+          
+          <p className="mt-4 font-poppins text-2xl sm:text-3xl font-semibold text-zinc-950">
+            i am into <TypingText strings={typingStrings} />
+          </p>
+          
+          <a
+            href="#about"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#2506ad] px-8 py-4 text-base font-bold text-white shadow-[0_5px_18px_rgba(48,68,247,0.4)] transition hover:bg-[#1a047e] font-poppins group"
+          >
+            About Me
+            <ArrowDown className="h-5 w-5 transition duration-300 group-hover:translate-y-1" />
+          </a>
+          
+          <div className="mt-16">
+            <ul className="flex items-center gap-4">
+              <li>
+                <a
+                  href="https://github.com/faridrahman1843"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#09011b] text-[#00d9ff] transition-all duration-300 hover:bg-[#0e0e0e] hover:text-white hover:scale-110"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.com/users/faridrahman1843"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Discord"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#09011b] text-[#00d9ff] transition-all duration-300 hover:bg-[#5865F2] hover:text-white hover:scale-110"
+                >
+                  <MessageSquare className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/faridrahman1843"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Twitter"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#09011b] text-[#00d9ff] transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white hover:scale-110"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:hello@novarynstudios.com"
+                  aria-label="Email"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#09011b] text-[#00d9ff] transition-all duration-300 hover:bg-[#ea4335] hover:text-white hover:scale-110"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+              </li>
+            </ul>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {["Java plugins", "Next.js dashboards", "License systems", "Linux deploys"].map((item) => (
-              <div key={item} className="rounded-md border border-primary/20 bg-white/[0.035] px-4 py-3 text-sm font-bold text-white">{item}</div>
-            ))}
+        </div>
+        
+        <div className="flex justify-center lg:justify-end">
+          <div className="relative h-72 w-72 sm:h-96 sm:w-96 overflow-hidden rounded-full border-4 border-white shadow-2xl transition duration-500 hover:scale-105 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)]">
+            <Image
+              src={portfolio.hero.profileImage}
+              alt={`Profile picture of ${portfolio.person.name}`}
+              fill
+              priority
+              sizes="(max-width: 640px) 288px, 384px"
+              className="object-cover"
+            />
           </div>
-        </motion.div>
+        </div>
       </Container>
-      <a href="#projects" className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted sm:flex">
-        Scroll for more
-        <ChevronDown className="h-5 w-5 animate-bounce text-primary-bright" aria-hidden />
-      </a>
     </section>
   );
 }
